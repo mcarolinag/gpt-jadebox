@@ -7,7 +7,7 @@ import openai
 
 load_dotenv()
 openai.api_key = os.getenv("OPEN_API_KEY")
-completion=openai.completion()
+completion=openai.Completion()
 
 start_sequence="\nBhikkhuni:"
 restart_sequence='\n\nPerson:'
