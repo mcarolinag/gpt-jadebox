@@ -14,7 +14,7 @@ session_prompt="You are talking with Bhukkuni your mindful chatbot. I was create
 
 def ask(question, chat_log=None):
   response = openai.Completion.create(
-    prompt_text= f'{chat_log}{resetart_sequence}:{questions}{start_sequence}'
+    prompt_text= f'{chat_log}{resetart_sequence}:{questions}{start_sequence}',
     model="text-davinci-002",
     prompt=prompt_text
     temperature=0.9,
