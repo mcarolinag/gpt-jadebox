@@ -6,7 +6,7 @@ app=Flask(__name__)
 
 app.config['SECRET_KEY']='19ca79ro10li21na'
 
-@app.route('/bhikkhubot', method=['POST'])
+@app.route('/bhikkhubot', methods=['POST'])
 
 def bhikkhuni():
     incoming_msg = request.values['Body']
