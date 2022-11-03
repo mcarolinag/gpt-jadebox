@@ -24,9 +24,6 @@ def ask(question, chat_log=None):
     frequency_penalty=0,
     presence_penalty=0.5
   )
-
-
-Your API Key can be found here. You should use environment variables or a secret managem
   story=respose['choices'][0]['text']
   return str(story)
 
