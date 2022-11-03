@@ -1,11 +1,12 @@
 
-from dotenv import lead_dotenv
+from dotenv import load_dotenv
 from random import choice
+from flask import Flask, request
 import os
 import openai
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPEN_API_KEY")
 completion=openai.completion()
 
 start_sequence="\nBhikkhuni:"
@@ -14,7 +15,7 @@ session_prompt="You are talking with Bhukkuni your mindful chatbot. I was create
 
 def ask(question, chat_log=None):
   response = openai.Completion.create(
-    prompt_text= f'{chat_log}{resetart_sequence}:{questions}{start_sequence}',
+    prompt_text= f’{chat_log}{restart_sequence}:{question}{start_sequence}:’
     model="text-davinci-002",
     prompt=prompt_text,
     temperature=0.9,
@@ -30,4 +31,4 @@ def ask(question, chat_log=None):
 def append_interaction_to_chat_log(question,answer,chat_log=None):
   if chat_log is None:
     chatlog= session_prompt
-  return f'{chat_log}{resetart_sequence}:{questions}{start_sequence}{answer}'
+  return f’{chat_log}{restart_sequence} {question}{start_sequence}{answer}
