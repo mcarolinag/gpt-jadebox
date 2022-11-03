@@ -16,13 +16,13 @@ def ask(question, chat_log=None):
   response = openai.Completion.create(
     prompt_text= f'{chat_log}{resetart_sequence}:{questions}{start_sequence}',
     model="text-davinci-002",
-    prompt=prompt_text
+    prompt=prompt_text,
     temperature=0.9,
     max_tokens=150,
     top_p=1,
     frequency_penalty=0,
     presence_penalty=0.5
-    stop=["\n"]
+    
   )
   story=respose['choices'][0]['text']
   return str(story)
